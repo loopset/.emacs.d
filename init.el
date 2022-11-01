@@ -1,3 +1,9 @@
+;;save custom variables set by emacs in separete file
+;; so they dont contaminate this file
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(when (file-exists-p custom-file)
+  (load custom-file))
+
 ;; Make all commands of the “package” module present.
 (require 'package)
 ;; Internet repositories for new packages.
@@ -5,14 +11,14 @@
                          ("melpa"     . "http://melpa.org/packages/")))
 ;; Actually get “package” to work.
 (package-initialize)
-;;(package-refresh-contents)
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
+
 (require 'use-package)
 ;;always ensure packages
 (setq use-package-always-ensure t)
 
-;; emacs basic customization
+;; emacs package basic customization
 (use-package emacs
   :init
   ;;basic modes
