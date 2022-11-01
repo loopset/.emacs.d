@@ -1,9 +1,3 @@
-;;save custom variables set by emacs in separete file
-;; so they dont contaminate this file
-(setq custom-file (concat user-emacs-directory "custom.el"))
-(when (file-exists-p custom-file)
-  (load custom-file))
-
 ;; Make all commands of the “package” module present.
 (require 'package)
 ;; Internet repositories for new packages.
@@ -285,3 +279,9 @@
   :bind (:map projectile-mode-map
               ("s-p" . projectile-command-map)
               ("C-c p" . projectile-command-map)))
+
+;;save custom variables set by emacs in separete file
+;; so they dont contaminate this file
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(when (file-exists-p custom-file)
+  (load custom-file))
