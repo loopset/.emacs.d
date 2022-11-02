@@ -144,16 +144,17 @@
 (use-package company
   :config
   (setq company-backends '((company-files company-capf company-yasnippet
-  							:with company-dabbrev-code)))
+					  :with company-dabbrev-code)))
   (setq company-idle-delay 0
   	company-require-match nil
 	company-selection-wrap-around t
 	company-tooltip-align-annotations t
 	company-dabbrev-downcase nil
-	company-dabbrev-minimum-length 3
-	company-minimum-prefix-length 3)
+	company-minimum-prefix-length 3
+	company-dabbrev-minimum-length 4 ;; we still get the floating point issue, but it's a bug
+	company-insertion-on-trigger nil)
   (setq company-transformers '(delete-consecutive-dups
-  							   company-sort-by-backend-importance))
+  			       company-sort-by-backend-importance))
   (setq company-files-chop-trailing-slash nil)
   :hook
   (prog-mode . company-mode)
