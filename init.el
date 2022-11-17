@@ -103,7 +103,7 @@
   :config
   (setq eglot-ignored-server-capabilites '(:documentHighlightProvider :codeLensProvider)
 	eglot-autoshutdown t);;turn off highlight and lens; also enable shutdown
-  (setq eglot-stay-out-of '(company)) ;; to avoid eglot overriding company backends
+  ;;(setq eglot-stay-out-of '(company)) ;; to avoid eglot overriding company backends
   )
 
 ;;Which-key
@@ -142,6 +142,8 @@
 
 ;;company-mode: autocompletion
 (use-package company
+  :bind
+  (("C-c c f" . company-files))
   :config
   (setq company-backends '((company-files company-capf company-yasnippet
 					  :with company-dabbrev-code)))
