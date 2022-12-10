@@ -48,7 +48,7 @@
   (defalias 'yes-or-no-p 'y-or-n-p) ;just answer y or n
   ;;emacs bulit-in autocompletion (used by company backends!!)
   (setq-default   completions-detailed t ;; better autocompletition
-		  completion-ignore-case nil ;; ignore capital letters for company-capf (causes wrong completition sorting)
+		  completion-ignore-case t ;; ignore or not capital letters for company-capf (causes wrong completition sorting)
 		  )
   (setq   visible-bell t
 	  kill-buffer-query-functions nil ;; dont ask when closing buffer
@@ -103,7 +103,7 @@
   :config
   (setq eglot-ignored-server-capabilites '(:documentHighlightProvider :codeLensProvider)
 	eglot-autoshutdown t);;turn off highlight and lens; also enable shutdown
-  ;;(setq eglot-stay-out-of '(company)) ;; to avoid eglot overriding company backends
+  (setq eglot-stay-out-of '(company)) ;; to avoid eglot overriding company backends
   )
 
 ;;Which-key
