@@ -114,7 +114,7 @@
 
 ;;for helm
 (use-package helm
-  :init (require 'helm-config)
+  ;;:init (require 'helm-config)
   :bind (("M-x" . helm-M-x)
          ("C-x C-f" . helm-find-files)
          ("C-x b" . helm-buffers-list)
