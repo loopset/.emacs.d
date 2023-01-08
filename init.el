@@ -308,6 +308,11 @@
   ;;(require 'org-roam-protocol)
   )
 
+(use-package undo-fu
+  :bind
+  (("C-z" . undo-fu-only-undo)
+   ("C-S-z" . undo-fu-only-redo)))
+
 ;;save custom variables set by emacs in separete file
 ;; so they dont contaminate this file
 (setq custom-file (concat user-emacs-directory "custom.el"))
