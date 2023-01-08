@@ -86,7 +86,7 @@
 (use-package spacemacs-theme
   :defer t
   :init
-  (load-theme 'spacemacs-dark t)
+  (load-theme 'spacemacs-light t)
   :config
   (setq spacemacs-theme-comment-italic t))
 
@@ -282,6 +282,31 @@
   :bind (:map projectile-mode-map
               ("s-p" . projectile-command-map)
               ("C-c p" . projectile-command-map)))
+
+(use-package magit
+  :bind (("C-x g" . magit-status)
+	 ("C-x C-g" . magit-status)))
+
+(use-package org-roam
+  :custom
+  (org-roam-directory "/home/miguel/Documentos/Org_roam")
+  (org-roam-complete-everywhere t)
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n g" . org-roam-graph)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n c" . org-roam-capture)
+         ;; Dailies
+         ("C-c n j" . org-roam-dailies-capture-today)
+	 :map org-mode-map
+	 ("C-M-i" . completion-at-point))
+  :config
+  ;; If you're using a vertical completion framework, you might want a more informative completion interface
+  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+  (org-roam-db-autosync-mode)
+  ;; If using org-roam-protocol
+  ;;(require 'org-roam-protocol)
+  )
 
 ;;save custom variables set by emacs in separete file
 ;; so they dont contaminate this file
