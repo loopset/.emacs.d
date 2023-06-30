@@ -86,9 +86,9 @@
 (use-package spacemacs-theme
   :defer t
   :init
-  (load-theme 'spacemacs-light t)
+  (load-theme 'spacemacs-dark t)
   :config
-  (setq spacemacs-theme-comment-italic t))
+  (setq spacemacs-theme-comment-italic 1))
 
 ;;Basic: set up C++ environment
 ;;(setq gc-cons-threshold (* 100 1024 1024))
@@ -98,6 +98,7 @@
 (use-package eglot
   :hook
   (c++-mode . eglot-ensure)
+  (python-mode . eglot-ensure)
   ;(eglot-managed-mode . (lambda ()
 ;			  (flymake-mode -1)));;disable flymake on elgot to avoid string_view error on ROOT
   :config
@@ -196,6 +197,7 @@
   (LaTeX-mode . yas-minor-mode)
   (c++-mode . yas-minor-mode)
   (org-mode . yas-minor-mode)
+  (python-mode . yas-minor-mode)
   :config
   (yas-reload-all)
   )
@@ -224,8 +226,8 @@
 (use-package treemacs
   :disabled)
 
-;;all the icons
-(use-package all-the-icons
+;; nerd-icons
+(use-package nerd-icons
   :if (display-graphic-p))
 
 ;;cat in modeline
@@ -312,6 +314,9 @@
   :bind
   (("C-z" . undo-fu-only-undo)
    ("C-S-z" . undo-fu-only-redo)))
+
+(use-package nano-theme
+  :disabled)
 
 ;;save custom variables set by emacs in separete file
 ;; so they dont contaminate this file
